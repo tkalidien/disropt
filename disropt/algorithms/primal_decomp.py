@@ -190,7 +190,8 @@ class PrimalDecomposition(Algorithm):
             y_new += stepsize * (mu - mu_j)
         
         self.x = x
-        self.J = np.asscalar(self.agent.problem.objective_function.eval(x))
+        # self.J = np.asscalar(self.agent.problem.objective_function.eval(x))
+        self.J = self.agent.problem.objective_function.eval(x).item()
         self.y = y_new
 
         if update_runavg:
